@@ -1,25 +1,50 @@
 // ========================== greet user proactively ========================
 $(document).ready(function () {
-
+	$('.dropdown-trigger').dropdown();
+	//initiate the modal
+    $('.modal').modal();
 	// showBotTyping();
 	// $("#userInput").prop('disabled', true);
 	//global variables
 	action_name = "action_greet_user";
 	user_id = "jitesh97";
 
+	title="Leaves";
+	labels=["Sick Leave", "Casual Leave", "Earned Leave", "Flexi Leave"];
+	backgroundColor=[ "#36a2eb","#ffcd56","#ff6384","#009688","#c45850"];
+	data=[5,10,22,3];
+	chartType="pie";
+	displayLegend=true
+	//  //createPieChart()
+	createChart(title,labels,backgroundColor,data,chartType,displayLegend)
+
+
+
 	//if you want the bot to start the conversation
 	// action_trigger();
 	
 })
 
+
+
+
 // ========================== restart conversation ========================
 function restartConversation() {
+	$("#userInput").prop('disabled', true);
+	//destroy the existing chart
+	$('.collapsible').remove();
+	if (typeof chatChart !== 'undefined') {chatChart.destroy();}
+	
+	$(".chart-container").remove();
+	if (typeof modalChart !== 'undefined') {modalChart.destroy();}
+	$(".chats").html("");
 	$(".usrInput").val("");
 	send("/restart");
 }
 
 // ========================== let the bot start the conversation ========================
 function action_trigger() {
+
 	// send an event to the bot, so that bot can start the conversation by greeting the user
 	$.ajax({
 		url: `http://localhost:5005/conversations/${user_id}/execute`,
@@ -56,6 +81,15 @@ $(".usrInput").on("keyup keypress", function (e) {
 			e.preventDefault();
 			return false;
 		} else {
+			//destroy the existing chart
+			$('.collapsible').remove();
+			if (typeof chatChart !== 'undefined') {chatChart.destroy();}
+			
+			$(".chart-container").remove();
+			if (typeof modalChart !== 'undefined') {modalChart.destroy();}
+
+			
+
 			$("#paginated_cards").remove();
 			$(".suggestions").remove();
 			$(".quickReplies").remove();
@@ -75,6 +109,12 @@ $("#sendButton").on("click", function (e) {
 		return false;
 	}
 	else {
+		//destroy the existing chart
+		
+		chatChart.destroy();
+		$(".chart-container").remove();
+		if (typeof modalChart !== 'undefined') {modalChart.destroy();}
+
 		$(".suggestions").remove();
 		$("#paginated_cards").remove();
 		$(".quickReplies").remove();
@@ -89,7 +129,7 @@ $("#sendButton").on("click", function (e) {
 
 //==================================== Set user response =====================================
 function setUserResponse(message) {
-	var UserResponse = '<img class="userAvatar" src=' + "./static/img/userAvatar.png" + '><p class="userMsg">' + message + ' </p><div class="clearfix"></div>';
+	var UserResponse = '<img class="userAvatar" src=' + "./static/img/userAvatar.jpg" + '><p class="userMsg">' + message + ' </p><div class="clearfix"></div>';
 	$(UserResponse).appendTo(".chats").show("slow");
 
 	$(".usrInput").val("");
@@ -107,6 +147,8 @@ function scrollToBottomOfResults() {
 
 //============== send user message to rasa server =============================================
 function send(message) {
+
+
 	$.ajax({
 		url: "http://localhost:5005/webhooks/rest/webhook",
 		type: "POST",
@@ -114,10 +156,11 @@ function send(message) {
 		data: JSON.stringify({ message: message, sender: user_id }),
 		success: function (botResponse, status) {
 			console.log("Response from Rasa: ", botResponse, "\nStatus: ", status);
-
 			// if user wants to restart the chat, clear the existing chat contents
 			if (message.toLowerCase() == '/restart') {
-				$(".chats").html("");
+				$("#userInput").prop('disabled', false);
+				
+				// action_trigger();
 				return;
 			}
 			setBotResponse(botResponse);
@@ -125,6 +168,13 @@ function send(message) {
 		},
 		error: function (xhr, textStatus, errorThrown) {
 
+			if (message.toLowerCase() == '/restart') {
+				$("#userInput").prop('disabled', false);
+				
+				// action_trigger();
+				// return;
+			}
+			
 			// if there is no response from rasa server
 			setBotResponse("");
 			console.log("Error from bot end: ", textStatus);
@@ -245,6 +295,13 @@ $("#close").click(function () {
 
 $("#restart").click(function () {
 	restartConversation()
+});
+
+$("#clear").click(function () {
+	$(".chats").fadeOut("normal", function() {
+		$(".chats").html("");
+		$(".chats").fadeIn();
+    });
 });
 
 //====================================== Cards Carousel =========================================
@@ -419,3 +476,125 @@ function hideBotTyping() {
 	$('#botAvatar').remove();
 	$('.botTyping').remove();
 }
+
+
+
+
+// on click of quickreplies, get the value and send to rasa
+$(document).on("click", "#expand", function () {
+	console.log("modal");
+	
+	createChartinModal(title,labels,backgroundColor,data,chartType,displayLegend)
+});
+
+
+var chartData={"title":"Leaves","labels":["Sick Leave","Casual Leave","Earned Leave","Flexi Leave"],"backgroundColor":["#36a2eb","#ffcd56","#ff6384","#009688","#c45850"],"chartsData":[5,10,22,3],"chartType":"pie","displayLegend":"true"}
+  
+
+
+
+function createChart(title,labels,backgroundColor,data,chartType,displayLegend){
+
+var html='<div class="chart-container"> <span class="modal-trigger" id="expand" title="expand" href="#modal1"><i class="fa fa-external-link" aria-hidden="true"></i></span> <canvas id="chat-chart" ></canvas> </div>'
+$(html).appendTo('.chats');
+	var ctx = $('#chat-chart');
+	var data= {
+		labels: labels,
+		datasets: [{
+		  label: title,
+		  backgroundColor: backgroundColor,
+		  data: data,
+		  fill: false
+		}]
+	  };
+	var options={
+	title: {
+            display: true,
+            text: title
+        },
+		layout: {
+			  padding: {
+				  left: 5,
+				  right: 0,
+				  top: 0,
+				  bottom: 0
+			  }
+		  },
+		  legend: {
+            display:displayLegend,
+            position:"right"
+    }
+		}
+	
+	chatChart = new Chart(ctx, {
+		  type: chartType,
+		  data: data,
+		  options: options
+	  });
+	  scrollToBottomOfResults();
+
+}
+
+function createChartinModal(title,labels,backgroundColor,data,chartType,displayLegend){
+	console.log("came here: ",title,labels,backgroundColor,data,chartType,displayLegend)
+	// var html='<div id="modal1" class="modal"><canvas id="modal-chart"></canvas></div>';
+	// $(html).appendTo("body");
+	// $('.modal').modal();
+	
+	var ctx = $('#modal-chart');
+
+	var data= {
+		labels: labels,
+		datasets: [{
+		  label: title,
+		  backgroundColor: backgroundColor,
+		  data: data,
+		  fill: false
+		}]
+	  };
+	var options={
+	title: {
+            display: true,
+            text: title
+        },
+		layout: {
+			  padding: {
+				  left: 5,
+				  right: 0,
+				  top: 0,
+				  bottom: 0
+			  }
+		  },
+		  legend: {
+            display: displayLegend,
+            position:"right"
+    }
+		}
+	
+		modalChart = new Chart(ctx, {
+		  type: chartType,
+		  data: data,
+		  options: options
+	  });
+
+
+	//   $('.modal').modal();
+}
+
+function createCollapsible(){
+	data=[{"title":"Sick Leave","description":"Sick leave is time off from work that workers can use to stay home to address their health and safety needs without losing pay."},{"title":"Earned Leave","description":"Earned Leaves are the leaves which are earned in the previous year and enjoyed in the preceding years. "},{"title":"Casual Leave","description":"Casual Leave are granted for certain unforeseen situation or were you are require to go for one or two days leaves to attend to personal matters and not for vacation."},{"title":"Flexi Leave","description":"Flexi leave is an optional leave which one can apply directly in system at lease a week before."}]
+	list="";
+	for(i=0;i<data.length;i++)
+	{
+			item='<li>'+
+	   '<div class="collapsible-header">'+data[i].title+'</div>'+
+	   '<div class="collapsible-body"><span>'+data[i].description+'</span></div>'+
+	'</li>'
+	list+=item;
+	}
+	var contents='<ul class="collapsible">'+list+'</uL>';
+	$(contents).appendTo(".chats");
+	$('.collapsible').collapsible();
+	scrollToBottomOfResults();
+}
+

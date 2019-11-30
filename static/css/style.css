@@ -3,6 +3,83 @@ body {
 }
 
 
+.dropdown-trigger {
+    cursor: pointer;
+    color: white;
+    margin-right: 5px;
+    float: right;
+    margin-top: 3%;
+}
+
+.dropdown-content li>a, .dropdown-content li>span{
+    color: #443db1;
+}
+
+#expand:hover{
+	font-size: 18px;
+}
+#expand{
+	position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.modal {
+	height:60%;
+	border-radius: 10px;
+
+}
+
+  .chart-container {
+	position: relative;
+	margin: auto;
+	height: 25vh;
+	width: 20vw;
+	border-radius: 10px 10px 10px 10px;
+    margin-left: 5%;
+    background: white;
+	box-shadow: 2px 3px 9px 0px #9a82847a;
+	margin-top: 5px;
+  }
+  .collapsible{
+	margin-top: 5px;
+	margin-left: 5%;
+	max-width: 60%;
+    min-width: 25%;
+    font-size: 13px;
+	word-wrap: break-word;
+	border-radius: 20px;
+	background: white;
+}
+.collapsible-body{
+	padding: 15px;
+}
+
+.collapsible-header{
+	font-weight: bold;
+	color:#2c53af;
+}
+ul.collapsible>li:first-child .collapsible-header {
+	border-radius: 20px 20px 0px 0px;
+  }
+
+  ul.collapsible>li:last-child .collapsible-header {
+	color:#2c53af;
+	border-radius: 0px 0px 20px 20px;
+  }
+
+  ul.collapsible>li:last-child .collapsible-body {
+	border-bottom:none;
+  }
+
+/* .collapsible>li{
+	border-radius:20px;
+} */
+
+.collapsible-header {
+	padding: 10px;
+}
+
 /* ============= css related to chats =============== */
 
 .widget {
@@ -19,7 +96,8 @@ body {
 
 .chat_header {
 	height: 60px;
-	background: #e23744;
+	background: rgb(68,61,177);
+	
 	border-radius: 10px 10px 0px 0px;
 	padding: 5px;
 	font-size: 20px;
@@ -50,12 +128,7 @@ div.chats::-webkit-scrollbar {
     / optional: just make scrollbar invisible */
 }
 
-#close {
-	color: white;
-	margin-right: 5px;
-	float: right;
-	margin-top: 3%;
-}
+
 
 #close,
 #restart {
@@ -73,14 +146,16 @@ div.chats::-webkit-scrollbar {
 	height: 1.5em;
 	float: left;
 	margin-left: 5px;
-	/* border: 2px solid  #e23744 ; */
+	/* border: 2px solid  #2c53af ; */
 }
+
+
 
 .botMsg {
 	float: left;
 	margin-top: 5px;
-	background: #e23744;
-	color: white;
+	background: white;
+	color: black;
 	box-shadow: 2px 3px 9px 0px #9a82847a;
 	margin-left: 0.5em;
 	padding: 10px;
@@ -116,8 +191,8 @@ textarea-webkit-scrollbar {
 	padding: 10px;
 	float: right;
 	margin-right: 0.5em;
-	background: #fff;
-	color: black;
+	background: #443db1;
+	color: white;
 	margin-bottom: 0.15em;
 	font-size: 13px;
 	max-width: 65%;
@@ -134,7 +209,7 @@ textarea-webkit-scrollbar {
 	height: 1.5em;
 	float: right;
 	margin-right: 5px;
-	/* border: 2px solid  #e23744 ; */
+	/* border: 2px solid  #2c53af ; */
 }
 
 .usrInput {
@@ -168,7 +243,7 @@ textarea-webkit-scrollbar {
 	padding: 5px;
 	font-size: 20px;
 	cursor: pointer;
-	color: #d8d5d2
+	color: #2b2bab;
 }
 
 .imgProfile {
@@ -295,7 +370,7 @@ textarea-webkit-scrollbar {
 
 .order,
 #closeContents {
-	color: #e23744;
+	color: #2c53af;
 }
 
 .metadata_2,
@@ -398,7 +473,7 @@ div.content_data::-webkit-scrollbar {
 
 .menuChips {
 	display: block;
-	background: #e23744;
+	background: #2c53af;
 	color: #fff;
 	text-align: center;
 	padding: 5px;
@@ -562,7 +637,7 @@ div.content_data::-webkit-scrollbar {
     font-size: 15px;
     /* font-weight: 600; */
     padding: 5px;
-    /* color: #e23744; */
+    /* color: #2c53af; */
     color: #ffffff;
     cursor: pointer;
 }
@@ -603,14 +678,14 @@ div.content_data::-webkit-scrollbar {
 
 .chip {
 	background-color: white;
-	border: 1px solid #e23744;
-	color: #e23744;
+	border: 1px solid #2c53af;
+	color: #2c53af;
 	font-weight: bolder;
 	text-align: center;
 }
 
 .chip:hover {
-	background-color: #e23744;
+	background-color: #2c53af;
 	color: white;
 }
 
@@ -619,11 +694,11 @@ div.content_data::-webkit-scrollbar {
 .botTyping {
 	float: left;
 	margin-top: 5px;
-	background: #e23744;
-	color: white;
+	background: white;
+	color: #2c53af;
 	box-shadow: 2px 3px 9px 0px #9a82847a;
 	margin-left: 0.5em;
-	padding: 10px;
+	padding: 15px;
 	border-radius: 0 20px 20px 20px;
 	max-width: 60%;
 	min-width: 20%;
@@ -634,7 +709,7 @@ div.content_data::-webkit-scrollbar {
 .botTyping>div {
 	width: 10px;
 	height: 10px;
-	background-color: #fff;
+	background-color: #2c53af;
 	border-radius: 100%;
 	display: inline-block;
 	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
