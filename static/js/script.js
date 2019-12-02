@@ -20,9 +20,6 @@ $(document).ready(function () {
 
 })
 
-
-
-
 // ========================== restart conversation ========================
 function restartConversation() {
 	$("#userInput").prop('disabled', true);
@@ -64,7 +61,6 @@ function action_trigger() {
 		}
 	});
 }
-
 
 //=====================================	user enter or sends the message =====================
 $(".usrInput").on("keyup keypress", function (e) {
@@ -122,7 +118,6 @@ $("#sendButton").on("click", function (e) {
 	}
 })
 
-
 //==================================== Set user response =====================================
 function setUserResponse(message) {
 	var UserResponse = '<img class="userAvatar" src=' + "./static/img/userAvatar.jpg" + '><p class="userMsg">' + message + ' </p><div class="clearfix"></div>';
@@ -144,7 +139,6 @@ function scrollToBottomOfResults() {
 //============== send the user message to rasa server =============================================
 function send(message) {
 
-
 	$.ajax({
 		url: "http://localhost:5005/webhooks/rest/webhook",
 		type: "POST",
@@ -156,7 +150,7 @@ function send(message) {
 			// if user wants to restart the chat and clear the existing chat contents
 			if (message.toLowerCase() == '/restart') {
 				$("#userInput").prop('disabled', false);
-				
+
 				//if you want the bot to start the conversation after restart
 				// action_trigger();
 				return;
@@ -271,11 +265,9 @@ function setBotResponse(response) {
 						//pass the data variable to createCollapsible function
 						createCollapsible(data);
 					}
-
 				}
 			}
 			scrollToBottomOfResults();
-
 		}
 	}, 500);
 }
@@ -309,12 +301,12 @@ $(document).on("click", ".menu .menuChips", function () {
 	setUserResponse(text);
 	send(payload);
 
-	//delete the suggestions
+	//delete the suggestions once user click on it
 	$(".suggestions").remove();
 
 });
 
-//====================================== functions for drop down menu of the bot =========================================
+//====================================== functions for drop-down menu of the bot  =========================================
 
 //restart function to restart the conversation.
 $("#restart").click(function () {
@@ -509,6 +501,29 @@ function hideBotTyping() {
 	$('.botTyping').remove();
 }
 
+//====================================== Collapsible =========================================
+
+// function to create collapsible,
+// for more info refer:https://materializecss.com/collapsible.html
+function createCollapsible(data) {
+	//sample data format:
+	//var data=[{"title":"abc","description":"xyz"},{"title":"pqr","description":"jkl"}]
+	list = "";
+	for (i = 0; i < data.length; i++) {
+		item = '<li>' +
+			'<div class="collapsible-header">' + data[i].title + '</div>' +
+			'<div class="collapsible-body"><span>' + data[i].description + '</span></div>' +
+			'</li>'
+		list += item;
+	}
+	var contents = '<ul class="collapsible">' + list + '</uL>';
+	$(contents).appendTo(".chats");
+
+	// initialize the collapsible
+	$('.collapsible').collapsible();
+	scrollToBottomOfResults();
+}
+
 
 //====================================== creating Charts ======================================
 
@@ -552,8 +567,8 @@ function createChart(title, labels, backgroundColor, chartsData, chartType, disp
 			position: "right",
 			labels: {
 				boxWidth: 5,
-				fontSize:10
-				}
+				fontSize: 10
+			}
 		}
 	}
 
@@ -608,7 +623,7 @@ function createChartinModal(title, labels, backgroundColor, chartsData, chartTyp
 			display: displayLegend,
 			position: "right"
 		},
-		
+
 	}
 
 	modalChart = new Chart(ctx, {
@@ -617,26 +632,5 @@ function createChartinModal(title, labels, backgroundColor, chartsData, chartTyp
 		options: options
 	});
 
-}
-
-// function to create collapsible,
-// for more info refer:https://materializecss.com/collapsible.html
-function createCollapsible(data) {
-	//sample data format:
-	//var data=[{"title":"abc","description":"xyz"},{"title":"pqr","description":"jkl"}]
-	list = "";
-	for (i = 0; i < data.length; i++) {
-		item = '<li>' +
-			'<div class="collapsible-header">' + data[i].title + '</div>' +
-			'<div class="collapsible-body"><span>' + data[i].description + '</span></div>' +
-			'</li>'
-		list += item;
-	}
-	var contents = '<ul class="collapsible">' + list + '</uL>';
-	$(contents).appendTo(".chats");
-
-	// initialize the collapsible
-	$('.collapsible').collapsible();
-	scrollToBottomOfResults();
 }
 
