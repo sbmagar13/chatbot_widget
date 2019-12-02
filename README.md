@@ -16,15 +16,17 @@ A Open Source ChatBot widget easy to connect to RASA bot through [Rest](https://
 
 ## Features
 
-- [Text Messages](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/81342839b5abe92a48603958f85dbf086b7595c5/static/js/script.js#L156)
-- [Buttons](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/81342839b5abe92a48603958f85dbf086b7595c5/static/js/script.js#L169)
-- [Images](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/81342839b5abe92a48603958f85dbf086b7595c5/static/js/script.js#L162)
-- [Quick Replies](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/81342839b5abe92a48603958f85dbf086b7595c5/static/js/script.js#L177)
-- [Cards Carousel](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/81342839b5abe92a48603958f85dbf086b7595c5/static/js/script.js#L192)
-- [Bot Typing Indicator](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/81342839b5abe92a48603958f85dbf086b7595c5/static/js/script.js#L410)
-- [Location Acccess](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/81342839b5abe92a48603958f85dbf086b7595c5/static/js/script.js#L184)
-- [Conversation Restart](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/81342839b5abe92a48603958f85dbf086b7595c5/static/js/script.js#L16)
-- [Proactive Messaging from Bot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/81342839b5abe92a48603958f85dbf086b7595c5/static/js/script.js#L22)
+- [Text Messages](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L198)
+- [Buttons](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L211)
+- [Images](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L204)
+- [Quick Replies](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L219)
+- [Cards Carousel](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L234)
+- [Charts](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L241)
+- [Collapsible](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L262)
+- [Bot Typing Indicator](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L490)
+- [Location Acccess](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L444)
+- [Conversation Restart](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L311)
+
 
 ## Instructions
 *Before you start your bot server, make sure you have added `rest` channel in the `credentials.yml` file*
