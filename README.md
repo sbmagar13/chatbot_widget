@@ -2,6 +2,7 @@
 
 A Open Source ChatBot widget easy to connect to RASA bot through [Rest](https://rasa.com/docs/rasa/user-guide/connectors/your-own-website/#rest-channels) Channel.
 
+
 ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
 [![forthebadge](https://forthebadge.com/images/badges/for-you.svg)](https://forthebadge.com)
 
@@ -26,6 +27,7 @@ A Open Source ChatBot widget easy to connect to RASA bot through [Rest](https://
 - [Bot Typing Indicator](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L490)
 - [Location Acccess](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L444)
 - [Conversation Restart](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L311)
+- [Fully Customizable](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/js/script.js)
 
 
 ## Instructions
@@ -39,10 +41,19 @@ A Open Source ChatBot widget easy to connect to RASA bot through [Rest](https://
 **Step_2**: Once you have your Rasa server up & running, open the `index.html` file to test the bot.
 
 ## Screenshots:
+![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/charts_1.png) ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/collapse_1.png) 
+
+![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/charts_2.png)
+
+![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/menu.png)![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/collapse_1.png)
+
 ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/ui_1.PNG)
 ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/ui_2.PNG)
 ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/chats.png) ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/cardsUi_2.png) ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/cardsUi.png)
 
+## Library used:
+- [Materialize CSS](https://materializecss.com) for CSS
+- [Chart.js](https://www.chartjs.org/) for Charts
 
 ## Demo:
 
