@@ -1,28 +1,23 @@
 // ========================== greet user proactively ========================
 $(document).ready(function () {
+
+	//drop down menu for close, restart conversation & clear the chats.
 	$('.dropdown-trigger').dropdown();
-	//initiate the modal
-    $('.modal').modal();
+
+	//initiate the modal for displaying the charts, if you dont have charts, then you comment the below line
+	$('.modal').modal();
+
+	//enable this if u have configured the bot to start the conversation. 
 	// showBotTyping();
 	// $("#userInput").prop('disabled', true);
+
 	//global variables
 	action_name = "action_greet_user";
 	user_id = "jitesh97";
 
-	title="Leaves";
-	labels=["Sick Leave", "Casual Leave", "Earned Leave", "Flexi Leave"];
-	backgroundColor=[ "#36a2eb","#ffcd56","#ff6384","#009688","#c45850"];
-	data=[5,10,22,3];
-	chartType="pie";
-	displayLegend=true
-	//  //createPieChart()
-	createChart(title,labels,backgroundColor,data,chartType,displayLegend)
-
-
-
 	//if you want the bot to start the conversation
 	// action_trigger();
-	
+
 })
 
 
@@ -33,10 +28,11 @@ function restartConversation() {
 	$("#userInput").prop('disabled', true);
 	//destroy the existing chart
 	$('.collapsible').remove();
-	if (typeof chatChart !== 'undefined') {chatChart.destroy();}
-	
+
+	if (typeof chatChart !== 'undefined') { chatChart.destroy(); }
+
 	$(".chart-container").remove();
-	if (typeof modalChart !== 'undefined') {modalChart.destroy();}
+	if (typeof modalChart !== 'undefined') { modalChart.destroy(); }
 	$(".chats").html("");
 	$(".usrInput").val("");
 	send("/restart");
@@ -81,14 +77,14 @@ $(".usrInput").on("keyup keypress", function (e) {
 			e.preventDefault();
 			return false;
 		} else {
-			//destroy the existing chart
+			//destroy the existing chart, if yu are not using charts, then comment the below lines
 			$('.collapsible').remove();
-			if (typeof chatChart !== 'undefined') {chatChart.destroy();}
-			
-			$(".chart-container").remove();
-			if (typeof modalChart !== 'undefined') {modalChart.destroy();}
+			if (typeof chatChart !== 'undefined') { chatChart.destroy(); }
 
-			
+			$(".chart-container").remove();
+			if (typeof modalChart !== 'undefined') { modalChart.destroy(); }
+
+
 
 			$("#paginated_cards").remove();
 			$(".suggestions").remove();
@@ -110,10 +106,10 @@ $("#sendButton").on("click", function (e) {
 	}
 	else {
 		//destroy the existing chart
-		
+
 		chatChart.destroy();
 		$(".chart-container").remove();
-		if (typeof modalChart !== 'undefined') {modalChart.destroy();}
+		if (typeof modalChart !== 'undefined') { modalChart.destroy(); }
 
 		$(".suggestions").remove();
 		$("#paginated_cards").remove();
@@ -145,7 +141,7 @@ function scrollToBottomOfResults() {
 	terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
 }
 
-//============== send user message to rasa server =============================================
+//============== send the user message to rasa server =============================================
 function send(message) {
 
 
@@ -156,10 +152,12 @@ function send(message) {
 		data: JSON.stringify({ message: message, sender: user_id }),
 		success: function (botResponse, status) {
 			console.log("Response from Rasa: ", botResponse, "\nStatus: ", status);
-			// if user wants to restart the chat, clear the existing chat contents
+
+			// if user wants to restart the chat and clear the existing chat contents
 			if (message.toLowerCase() == '/restart') {
 				$("#userInput").prop('disabled', false);
 				
+				//if you want the bot to start the conversation after restart
 				// action_trigger();
 				return;
 			}
@@ -169,12 +167,13 @@ function send(message) {
 		error: function (xhr, textStatus, errorThrown) {
 
 			if (message.toLowerCase() == '/restart') {
-				$("#userInput").prop('disabled', false);
-				
+				// $("#userInput").prop('disabled', false);
+
+				//if you want the bot to start the conversation after the restart action.
 				// action_trigger();
 				// return;
 			}
-			
+
 			// if there is no response from rasa server
 			setBotResponse("");
 			console.log("Error from bot end: ", textStatus);
@@ -223,14 +222,14 @@ function setBotResponse(response) {
 				//check if the response contains "custom" message  
 				if (response[i].hasOwnProperty("custom")) {
 
-					//check of the custom payload type is "quickReplies"
+					//check if the custom payload type is "quickReplies"
 					if (response[i].custom.payload == "quickReplies") {
 						quickRepliesData = response[i].custom.data;
 						showQuickReplies(quickRepliesData);
 						return;
 					}
 
-					//check of the custom payload type is "location"
+					//check if the custom payload type is "location"
 					if (response[i].custom.payload == "location") {
 						$("#userInput").prop('disabled', true);
 						getLocation();
@@ -238,12 +237,41 @@ function setBotResponse(response) {
 						return;
 					}
 
-					//check of the custom payload type is "cardsCarousel"
+					//check if the custom payload type is "cardsCarousel"
 					if (response[i].custom.payload == "cardsCarousel") {
 						restaurantsData = (response[i].custom.data)
 						showCardsCarousel(restaurantsData);
 						return;
 					}
+
+					//check if the custom payload type is "chart"
+					if (response[i].custom.payload == "chart") {
+
+						// sample format of the charts data:
+						// var chartData = { "title": "Leaves", "labels": ["Sick Leave", "Casual Leave", "Earned Leave", "Flexi Leave"], "backgroundColor": ["#36a2eb", "#ffcd56", "#ff6384", "#009688", "#c45850"], "chartsData": [5, 10, 22, 3], "chartType": "pie", "displayLegend": "true" }
+
+						//store the below parameters as global variable, 
+						// so that it can be used while displaying the charts in modal.
+						chartData = (response[i].custom.data)
+						title = chartData.title;
+						labels = chartData.labels;
+						backgroundColor = chartData.backgroundColor;
+						chartsData = chartData.chartsData;
+						chartType = chartData.chartType;
+						displayLegend = chartData.displayLegend;
+
+						// pass the above variable to createChart function
+						createChart(title, labels, backgroundColor, chartsData, chartType, displayLegend)
+						return;
+					}
+
+					//check of the custom payload type is "collapsible"
+					if (response[i].custom.payload == "collapsible") {
+						data = (response[i].custom.data);
+						//pass the data variable to createCollapsible function
+						createCollapsible(data);
+					}
+
 				}
 			}
 			scrollToBottomOfResults();
@@ -286,22 +314,26 @@ $(document).on("click", ".menu .menuChips", function () {
 
 });
 
+//====================================== functions for drop down menu of the bot =========================================
 
-$("#close").click(function () {
-	$(".profile_div").toggle();
-	$(".widget").toggle();
-	scrollToBottomOfResults();
-});
-
+//restart function to restart the conversation.
 $("#restart").click(function () {
 	restartConversation()
 });
 
+//clear function to clear the chat contents of the widget.
 $("#clear").click(function () {
-	$(".chats").fadeOut("normal", function() {
+	$(".chats").fadeOut("normal", function () {
 		$(".chats").html("");
 		$(".chats").fadeIn();
-    });
+	});
+});
+
+//close function to close the widget.
+$("#close").click(function () {
+	$(".profile_div").toggle();
+	$(".widget").toggle();
+	scrollToBottomOfResults();
 });
 
 //====================================== Cards Carousel =========================================
@@ -429,7 +461,7 @@ function getLocation() {
 function getUserPosition(position) {
 	response = "Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude;
 	console.log("location: ", response);
-	
+
 	//here you add the intent which you want to trigger 
 	response = '/inform{"latitude":' + position.coords.latitude + ',"longitude":' + position.coords.longitude + '}';
 	$("#userInput").prop('disabled', false);
@@ -478,122 +510,132 @@ function hideBotTyping() {
 }
 
 
+//====================================== creating Charts ======================================
 
+//function to create the charts & render it to the canvas
+function createChart(title, labels, backgroundColor, chartsData, chartType, displayLegend) {
 
-// on click of quickreplies, get the value and send to rasa
+	//create the ".chart-container" div that will render the charts in canvas as required by charts.js,
+	// for more info. refer: https://www.chartjs.org/docs/latest/getting-started/usage.html
+	var html = '<div class="chart-container"> <span class="modal-trigger" id="expand" title="expand" href="#modal1"><i class="fa fa-external-link" aria-hidden="true"></i></span> <canvas id="chat-chart" ></canvas> </div> <div class="clearfix"></div>'
+	$(html).appendTo('.chats');
+
+	//create the context that will draw the charts over the canvas in the ".chart-container" div
+	var ctx = $('#chat-chart');
+
+	// Once you have the element or context, instantiate the chart-type by passing the configuration,
+	//for more info. refer: https://www.chartjs.org/docs/latest/configuration/
+	var data = {
+		labels: labels,
+		datasets: [{
+			label: title,
+			backgroundColor: backgroundColor,
+			data: chartsData,
+			fill: false
+		}]
+	};
+	var options = {
+		title: {
+			display: true,
+			text: title
+		},
+		layout: {
+			padding: {
+				left: 5,
+				right: 0,
+				top: 0,
+				bottom: 0
+			}
+		},
+		legend: {
+			display: displayLegend,
+			position: "right",
+			labels: {
+				boxWidth: 5,
+				fontSize:10
+				}
+		}
+	}
+
+	//draw the chart by passing the configuration
+	chatChart = new Chart(ctx, {
+		type: chartType,
+		data: data,
+		options: options
+	});
+
+	scrollToBottomOfResults();
+}
+
+// on click of expand button, get the chart data from gloabl variable & render it to modal
 $(document).on("click", "#expand", function () {
-	console.log("modal");
-	
-	createChartinModal(title,labels,backgroundColor,data,chartType,displayLegend)
+
+	//the parameters are declared gloabally while we get the charts data from rasa.
+	createChartinModal(title, labels, backgroundColor, chartsData, chartType, displayLegend)
 });
 
-
-var chartData={"title":"Leaves","labels":["Sick Leave","Casual Leave","Earned Leave","Flexi Leave"],"backgroundColor":["#36a2eb","#ffcd56","#ff6384","#009688","#c45850"],"chartsData":[5,10,22,3],"chartType":"pie","displayLegend":"true"}
-  
-
-
-
-function createChart(title,labels,backgroundColor,data,chartType,displayLegend){
-
-var html='<div class="chart-container"> <span class="modal-trigger" id="expand" title="expand" href="#modal1"><i class="fa fa-external-link" aria-hidden="true"></i></span> <canvas id="chat-chart" ></canvas> </div>'
-$(html).appendTo('.chats');
-	var ctx = $('#chat-chart');
-	var data= {
-		labels: labels,
-		datasets: [{
-		  label: title,
-		  backgroundColor: backgroundColor,
-		  data: data,
-		  fill: false
-		}]
-	  };
-	var options={
-	title: {
-            display: true,
-            text: title
-        },
-		layout: {
-			  padding: {
-				  left: 5,
-				  right: 0,
-				  top: 0,
-				  bottom: 0
-			  }
-		  },
-		  legend: {
-            display:displayLegend,
-            position:"right"
-    }
-		}
-	
-	chatChart = new Chart(ctx, {
-		  type: chartType,
-		  data: data,
-		  options: options
-	  });
-	  scrollToBottomOfResults();
-
-}
-
-function createChartinModal(title,labels,backgroundColor,data,chartType,displayLegend){
-	console.log("came here: ",title,labels,backgroundColor,data,chartType,displayLegend)
-	// var html='<div id="modal1" class="modal"><canvas id="modal-chart"></canvas></div>';
-	// $(html).appendTo("body");
-	// $('.modal').modal();
-	
+//function to render the charts in the modal
+function createChartinModal(title, labels, backgroundColor, chartsData, chartType, displayLegend) {
+	//if you want to display the charts in modal, make sure you have configured the modal in index.html
+	//create the context that will draw the charts over the canvas in the "#modal-chart" div of the modal
 	var ctx = $('#modal-chart');
 
-	var data= {
+	// Once you have the element or context, instantiate the chart-type by passing the configuration,
+	//for more info. refer: https://www.chartjs.org/docs/latest/configuration/
+	var data = {
 		labels: labels,
 		datasets: [{
-		  label: title,
-		  backgroundColor: backgroundColor,
-		  data: data,
-		  fill: false
+			label: title,
+			backgroundColor: backgroundColor,
+			data: chartsData,
+			fill: false
 		}]
-	  };
-	var options={
-	title: {
-            display: true,
-            text: title
-        },
+	};
+	var options = {
+		title: {
+			display: true,
+			text: title
+		},
 		layout: {
-			  padding: {
-				  left: 5,
-				  right: 0,
-				  top: 0,
-				  bottom: 0
-			  }
-		  },
-		  legend: {
-            display: displayLegend,
-            position:"right"
-    }
-		}
-	
-		modalChart = new Chart(ctx, {
-		  type: chartType,
-		  data: data,
-		  options: options
-	  });
+			padding: {
+				left: 5,
+				right: 0,
+				top: 0,
+				bottom: 0
+			}
+		},
+		legend: {
+			display: displayLegend,
+			position: "right"
+		},
+		
+	}
 
+	modalChart = new Chart(ctx, {
+		type: chartType,
+		data: data,
+		options: options
+	});
 
-	//   $('.modal').modal();
 }
 
-function createCollapsible(){
-	data=[{"title":"Sick Leave","description":"Sick leave is time off from work that workers can use to stay home to address their health and safety needs without losing pay."},{"title":"Earned Leave","description":"Earned Leaves are the leaves which are earned in the previous year and enjoyed in the preceding years. "},{"title":"Casual Leave","description":"Casual Leave are granted for certain unforeseen situation or were you are require to go for one or two days leaves to attend to personal matters and not for vacation."},{"title":"Flexi Leave","description":"Flexi leave is an optional leave which one can apply directly in system at lease a week before."}]
-	list="";
-	for(i=0;i<data.length;i++)
-	{
-			item='<li>'+
-	   '<div class="collapsible-header">'+data[i].title+'</div>'+
-	   '<div class="collapsible-body"><span>'+data[i].description+'</span></div>'+
-	'</li>'
-	list+=item;
+// function to create collapsible,
+// for more info refer:https://materializecss.com/collapsible.html
+function createCollapsible(data) {
+	//sample data format:
+	//var data=[{"title":"abc","description":"xyz"},{"title":"pqr","description":"jkl"}]
+	list = "";
+	for (i = 0; i < data.length; i++) {
+		item = '<li>' +
+			'<div class="collapsible-header">' + data[i].title + '</div>' +
+			'<div class="collapsible-body"><span>' + data[i].description + '</span></div>' +
+			'</li>'
+		list += item;
 	}
-	var contents='<ul class="collapsible">'+list+'</uL>';
+	var contents = '<ul class="collapsible">' + list + '</uL>';
 	$(contents).appendTo(".chats");
+
+	// initialize the collapsible
 	$('.collapsible').collapsible();
 	scrollToBottomOfResults();
 }
