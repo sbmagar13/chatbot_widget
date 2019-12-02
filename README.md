@@ -1,6 +1,6 @@
 # Chatbot Widget designed for Rasa Bots 🤖
 
-A Open Source ChatBot widget easy to connect to RASA bot through [Rest](https://rasa.com/docs/rasa/user-guide/connectors/your-own-website/#rest-channels) Channel.
+An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https://rasa.com/docs/rasa/user-guide/connectors/your-own-website/#rest-channels) Channel.
 
 
 ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
@@ -57,5 +57,5 @@ A Open Source ChatBot widget easy to connect to RASA bot through [Rest](https://
 
 ## Demo:
 
-Check out the widget in action here: https://youtu.be/j1BvTwNZKLY
+Check out the widget in action here: https://youtu.be/mnolLtOWykk
 
