@@ -222,6 +222,13 @@ function setBotResponse(response) {
 						showQuickReplies(quickRepliesData);
 						return;
 					}
+					
+					//check if the custom payload type is "dropDown"
+					if (response[i].custom.payload == "dropDown") {
+						dropDownData = response[i].custom.data;
+						renderDropDwon(dropDownData);
+						return;
+					}
 
 					//check if the custom payload type is "location"
 					if (response[i].custom.payload == "location") {
@@ -277,6 +284,31 @@ $("#profile_div").click(function () {
 	$(".profile_div").toggle();
 	$(".widget").toggle();
 });
+
+//====================================== DropDown ==================================================
+//render the dropdown messageand handle user selection
+function renderDropDwon(data) {
+	var options = "";
+	for (i = 0; i < data.length; i++) {
+		options += '<option value="' + data[i].value + '">' + data[i].label + '</option>'
+	}
+	var select = '<div class="dropDownMsg"><select class="browser-default dropDownSelect"> <option value="" disabled selected>Choose your option</option>' + options + '</select></div>'
+	$(".chats").append(select);
+
+	//add event handler if user selects a option.
+	$("select").change(function () {
+		var value = ""
+		var label = ""
+		$("select option:selected").each(function () {
+			label += $(this).text();
+			value += $(this).val();
+		});
+
+		setUserResponse(label);
+		send(value);
+		$(".dropDownMsg").remove();
+	});
+}
 
 //====================================== Suggestions ===========================================
 
