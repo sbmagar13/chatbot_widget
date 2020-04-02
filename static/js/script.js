@@ -213,6 +213,18 @@ function setBotResponse(response) {
 					addSuggestion(response[i].buttons);
 				}
 
+				//check if the response contains "attachment" 
+				if (response[i].hasOwnProperty("attachment")) {
+
+					//check if the attachment type is "video"
+					if (response[i].attachment.type == "video") {
+						video_url = response[i].attachment.payload.src;
+
+						var BotResponse = '<div class="video-container"> <iframe src="' + video_url + '" frameborder="0" allowfullscreen></iframe> </div>'
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+					}
+
+				}
 				//check if the response contains "custom" message  
 				if (response[i].hasOwnProperty("custom")) {
 
@@ -222,7 +234,7 @@ function setBotResponse(response) {
 						showQuickReplies(quickRepliesData);
 						return;
 					}
-					
+
 					//check if the custom payload type is "dropDown"
 					if (response[i].custom.payload == "dropDown") {
 						dropDownData = response[i].custom.data;
