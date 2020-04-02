@@ -52,6 +52,9 @@ An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https:/
 ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/ui_1.PNG)
 ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/ui_2.PNG)
 ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/chats.png) ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/cardsUi_2.png) ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/cardsUi.png)
+![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/video_msg.PNG)
+
+
 
 ## Library used:
 - [Materialize CSS](https://materializecss.com) for CSS
