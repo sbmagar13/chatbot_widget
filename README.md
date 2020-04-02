@@ -29,6 +29,7 @@ An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https:/
 - [Conversation Restart](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L311)
 - [Fully Customizable](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/js/script.js)
 - [DropDown](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/58f685643ef5e70603147f99b7b1f5e35b73be0f/static/js/script.js#L226)
+- Video Message(Youtube Links)
 
 
 ## Instructions
