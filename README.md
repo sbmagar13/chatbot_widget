@@ -2,7 +2,7 @@
 ![ScreenShot](static/img/banner.png)
 
 
-An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https://rasa.com/docs/rasa/user-guide/connectors/your-own-website/#rest-channels) Channel.
+*An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https://rasa.com/docs/rasa/user-guide/connectors/your-own-website/#rest-channels) Channel.*
 
 
 ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
