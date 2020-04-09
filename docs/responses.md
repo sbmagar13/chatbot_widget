@@ -1,6 +1,6 @@
-## Sending Bot Responses from Rasa
+# Sending Bot Responses from Rasa
 
-### Text
+## Text
 
 - sending response from `domain.yml`
     ```
