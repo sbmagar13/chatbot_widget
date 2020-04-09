@@ -52,7 +52,7 @@ Below are the sample bot projects that were developed using Rasa and made to wor
 
 ## Demo:
 
-Check out the widget in action here
+Check out the widget in action here [demo](https://www.youtube.com/watch?v=mnolLtOWykk)
 
 
-[![Alt text](https://img.youtube.com/vi/mnolLtOWykk/0.jpg)](https://www.youtube.com/watch?v=mnolLtOWykk)
+
