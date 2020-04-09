@@ -72,3 +72,28 @@
 
     dispatcher.utter_message(text="Check this video",attachment=msg)
     ```   
+
+  ## DropDown
+- sending response from `domain.yml`
+    ```
+    responses:
+      utter_menu:
+      - text: "Please select a option"
+        custom:
+          payload: dropDown
+          data:
+          - label: option1
+            value: "/inform{'slot_name':'option1'}"
+          - label: option2
+            value: "/inform{'slot_name':'option2'}"
+          - label: option3
+            value: "/inform{'slot_name':'option3'}"
+    ```
+
+- sending response from custom actions `actions.py` 
+    ```
+       data=[{"label":"option1","value":"/inform{'slot_name':'option1'}"},{"label":"option2","value":"/inform{'slot_name':'option2'}"},{"label":"option3","value":"/inform{'slot_name':'option3'}"}]
+        message={"payload":"dropDown","data":data}
+        dispatcher.utter_message(text="Please select a option",json_message=message)
+
+    ```   
