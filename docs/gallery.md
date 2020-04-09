@@ -1,5 +1,9 @@
 # Gallery
 
+## Botpop Intro
+
+![ScreenShot](../static/img/botPopup.PNG)
+
 ## Text
 
 ![ScreenShot](../static/img/chats.png)

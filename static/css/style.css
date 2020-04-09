@@ -801,3 +801,11 @@ video:focus {
     border-radius: 10px;
     border-style: none;
 }
+
+
+/* Bot pop-up intro */
+
+.tap-target {
+    color: #fff;
+    background: #443db1;
+}
