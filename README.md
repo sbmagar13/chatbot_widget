@@ -36,10 +36,11 @@
 - You can read the instructions here in [instructions.md](docs/instructions.md)
 
 ## Documentation
- - Check out the documentation on how to send bot response from Rasa in [response.md](docs/responses.md)
+- Check out the documentation on how to send bot response from Rasa in [response.md](docs/responses.md)
+- If you want to modify the UI elements, you can read on how to do here: [modifications.md](docs/modifications.md)
 
 ## Gallery:
-Check out the sample pics here [gallyery.md](docs/gallery.md)
+- Check out the sample pics here [gallyery.md](docs/gallery.md)
 
 ## Sample Bots:
 Below are the sample bot projects that were developed using Rasa and made to work with this widget
