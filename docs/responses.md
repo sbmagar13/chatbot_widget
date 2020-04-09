@@ -73,7 +73,7 @@
     dispatcher.utter_message(text="Check this video",attachment=msg)
     ```   
 
-## DropDown
+## Dropdown
 - sending response from `domain.yml`
     ```
     responses:
@@ -119,10 +119,10 @@
 
 - sending response from custom actions `actions.py` 
     ```
-      data=[{"label":"option1","value":"/inform{'slot_name':'option1'}"},{"label":"option2","value":"/inform{'slot_name':'option2'}"},{"label":"option3","value":"/inform{'slot_name':'option3'}"}]
+      data={ "payload": "quickReplies", "data": [ { "title":"chip1", "payload":"chip1_payload" }, { "title":"chip2", "payload":"chip2_payload" }, { "title":"chip3", "payload":"chip3_payload" } ] }
 
-      message={"payload":"dropDown","data":data}
+      message={"payload":"quickReplies","data":data}
 
-      dispatcher.utter_message(text="Please select a option",json_message=message)
+      dispatcher.utter_message(text="Please choose a cuisine",json_message=data)
 
     ```   
