@@ -1,0 +1,32 @@
+# Gallery
+
+## Text
+
+![ScreenShot](../static/img/chats.PNG)
+
+## Buttons
+
+![ScreenShot](../static/img/ui_1.PNG)
+
+## Images
+
+![ScreenShot](../static/img/ui_2.PNG)
+
+## Videos
+
+![ScreenShot](../static/img/video_msg.PNG)
+
+## Charts
+
+![ScreenShot](../static/img/charts_1.png) 
+![ScreenShot](../static/img/charts_2.png) 
+
+## Collapsible
+![ScreenShot](../static/img/collapse_1.png) 
+![ScreenShot](../static/img/collapse_2.png) 
+
+## Card Carousels
+
+![ScreenShot](../static/img/cardsUi.png) 
+![ScreenShot](../static/img/cardsUi_2.png) 
+
