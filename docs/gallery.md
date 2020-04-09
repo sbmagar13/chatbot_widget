@@ -16,6 +16,10 @@
 
 ![ScreenShot](../static/img/video_msg.PNG)
 
+## Quick Replies
+
+![ScreenShot](../static/img/cardsUi_3.png)
+
 ## Charts
 
 ![ScreenShot](../static/img/charts_1.png) 
