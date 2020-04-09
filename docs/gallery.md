@@ -2,7 +2,7 @@
 
 ## Text
 
-![ScreenShot](../static/img/chats.PNG)
+![ScreenShot](../static/img/chats.png)
 
 ## Buttons
 
