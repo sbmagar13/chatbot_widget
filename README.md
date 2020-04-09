@@ -34,7 +34,7 @@ An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https:/
 - You can read the instructions here in [instructions.md](docs/instructions.md)
 
 ## Documentation
- - Check oute the documentation on how to send bot response from Rasa in [response.md](docs/responses.md)
+ - Check out the documentation on how to send bot response from Rasa in [response.md](docs/responses.md)
 
 ## Gallery:
 ![ScreenShot](static/img/charts_1.png) ![ScreenShot](static/img/collapse_1.png) 
@@ -48,7 +48,10 @@ An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https:/
 ![ScreenShot](static/img/chats.png) ![ScreenShot](static/img/cardsUi_2.png) ![ScreenShot](static/img/cardsUi.png)
 ![ScreenShot](static/img/video_msg.PNG)
 
-
+## Sample Bots:
+Below are the sample bot projects that were developed using Rasa and made to work with this widget
+- [Restaurant Search Bot](https://github.com/JiteshGaikwad/Restaurant-Search-Bot.git)
+- [HR Bot](https://github.com/JiteshGaikwad/HR_Bot)
 
 ## Library used:
 - [Materialize CSS](https://materializecss.com) for CSS
