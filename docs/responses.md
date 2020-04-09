@@ -200,3 +200,21 @@
       dispatcher.utter_message(text="Here are your leave balance details",json_message=message)
 
     ```   
+
+## Location access
+
+- sending response from `domain.yml`
+    ```
+    responses:
+      utter_ask_location::
+        - text: "Sure, please allow me to access your location 🧐"
+          custom: 
+            payload: location
+    ```
+
+- sending response from custom actions `actions.py`
+  ```
+  message={"payload":"location"}
+
+  dispatcher.utter_message("Sure, please allow me to access your location 🧐",json_message=message)
+  ```
