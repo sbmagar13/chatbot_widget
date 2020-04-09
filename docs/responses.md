@@ -73,7 +73,7 @@
     dispatcher.utter_message(text="Check this video",attachment=msg)
     ```   
 
-  ## DropDown
+## DropDown
 - sending response from `domain.yml`
     ```
     responses:
