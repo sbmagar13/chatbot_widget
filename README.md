@@ -33,16 +33,9 @@ An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https:/
 
 
 ## Instructions
-*Before you start your bot server, make sure you have added `rest` channel in the `credentials.yml` file*
+you can get the instructions here in [instructions.md](docs/instructions.md)
 
-**Step_1**: Start your Rasa bot server & action server(if you have custom actions) using the below command
-> rasa run -m models --enable-api --cors "*" --debug
-
-> rasa run actions 
-
-**Step_2**: Once you have your Rasa server up & running, open the `index.html` file to test the bot.
-
-## Screenshots:
+## Gallery:
 ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/charts_1.png) ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/collapse_1.png) 
 
 ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/charts_2.png)
