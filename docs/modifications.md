@@ -1,6 +1,6 @@
 ## Modifying the UI 
 
-If you want to add the bot popup intro, you edit the below line of code in `index.html`
+If you want to add the bot popup intro, you can edit the below line of code in `index.html`
 
 ```
     <!-- Bot pop-up intro -->
