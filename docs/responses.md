@@ -99,3 +99,30 @@
       dispatcher.utter_message(text="Please select a option",json_message=message)
 
     ```   
+
+## Quick Replies
+- sending response from `domain.yml`
+    ```
+    responses:
+      utter_cuisine:
+      - text: "Please choose a cuisine"
+        custom:
+          payload: quickReplies
+          data:
+          - title: chip1
+            payload: chip1_payload
+          - title: chip2
+            payload: chip2_payload
+          - title: chip3
+            payload: chip3_payload
+    ```
+
+- sending response from custom actions `actions.py` 
+    ```
+      data=[{"label":"option1","value":"/inform{'slot_name':'option1'}"},{"label":"option2","value":"/inform{'slot_name':'option2'}"},{"label":"option3","value":"/inform{'slot_name':'option3'}"}]
+
+      message={"payload":"dropDown","data":data}
+
+      dispatcher.utter_message(text="Please select a option",json_message=message)
+
+    ```   
