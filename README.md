@@ -30,22 +30,23 @@ An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https:/
 - Location Access
 
 
-
-
 ## Instructions
-you can get the instructions here in [instructions.md](docs/instructions.md)
+- You can read the instructions here in [instructions.md](docs/instructions.md)
+
+## Documentation
+ - Check oute the documentation on how to send bot response from Rasa in [response.md](docs/responses.md)
 
 ## Gallery:
-![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/charts_1.png) ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/collapse_1.png) 
+![ScreenShot](static/img/charts_1.png) ![ScreenShot](static/img/collapse_1.png) 
 
-![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/charts_2.png)
+![ScreenShot](static/img/charts_2.png)
 
-![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/menu.png)![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/collapse_1.png)
+![ScreenShot](static/img/menu.png)![ScreenShot](static/img/collapse_1.png)
 
-![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/ui_1.PNG)
-![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/ui_2.PNG)
-![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/chats.png) ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/cardsUi_2.png) ![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/cardsUi.png)
-![ScreenShot](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/img/video_msg.PNG)
+![ScreenShot](static/img/ui_1.PNG)
+![ScreenShot](static/img/ui_2.PNG)
+![ScreenShot](static/img/chats.png) ![ScreenShot](static/img/cardsUi_2.png) ![ScreenShot](static/img/cardsUi.png)
+![ScreenShot](static/img/video_msg.PNG)
 
 
 
