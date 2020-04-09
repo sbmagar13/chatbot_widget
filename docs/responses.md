@@ -126,13 +126,47 @@
       dispatcher.utter_message(text="Please choose a cuisine",json_message=message)
 
     ```   
+    
+## Collapsible
+- sending response from `domain.yml`
+    ```
+    responses:
+      utter_askLeaveTypes:
+      - text: "You can apply for below leaves"
+        custom: 
+            payload: "collapsible"
+            data: 
+            - title: Sick Leave
+              description: Sick leave is time off from work that workers can use to stay home
+                to address their health and safety needs without losing pay.
+            - title: Earned Leave
+              description: 'Earned Leaves are the leaves which are earned in the previous year
+                and enjoyed in the preceding years. '
+            - title: Casual Leave
+              description: Casual Leave are granted for certain unforeseen situation or were you
+                are require to go for one or two days leaves to attend to personal matters and
+                not for vacation.
+            - title: Flexi Leave
+              description: Flexi leave is an optional leave which one can apply directly in system
+                at lease a week before.
+    ```
+
+- sending response from custom actions `actions.py` 
+    ```
+      data= [ { "title": "Sick Leave", "description": "Sick leave is time off from work that workers can use to stay home to address their health and safety needs without losing pay." }, { "title": "Earned Leave", "description": "Earned Leaves are the leaves which are earned in the previous year and enjoyed in the preceding years. " }, { "title": "Casual Leave", "description": "Casual Leave are granted for certain unforeseen situation or were you are require to go for one or two days leaves to attend to personal matters and not for vacation." }, { "title": "Flexi Leave", "description": "Flexi leave is an optional leave which one can apply directly in system at lease a week before." } ]
+
+      message={ "payload": "collapsible", "data": data }
+
+      dispatcher.utter_message(text="You can apply for below leaves",json_message=message)
+
+    ```   
 
 ## Charts
 - sending response from `domain.yml`
     ```
     responses:
       utter_askLeaveBalance:
-      - text: "here is your leave balance details"
+      - text: "Here are your leave balance details"
         custom:
           payload: chart
           data:
@@ -163,6 +197,6 @@
 
       message={ "payload": "chart", "data": data }
 
-      dispatcher.utter_message(text="Please choose a cuisine",json_message=message)
+      dispatcher.utter_message(text="Here are your leave balance details",json_message=message)
 
     ```   
