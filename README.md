@@ -1,5 +1,8 @@
 # Chatbot Widget designed for Rasa Bots
 
+![ScreenShot](static/img/banner.png)
+
+
 An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https://rasa.com/docs/rasa/user-guide/connectors/your-own-website/#rest-channels) Channel.
 
 
