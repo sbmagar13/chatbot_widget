@@ -119,10 +119,50 @@
 
 - sending response from custom actions `actions.py` 
     ```
-      data={ "payload": "quickReplies", "data": [ { "title":"chip1", "payload":"chip1_payload" }, { "title":"chip2", "payload":"chip2_payload" }, { "title":"chip3", "payload":"chip3_payload" } ] }
+      data= [ { "title":"chip1", "payload":"chip1_payload" }, { "title":"chip2", "payload":"chip2_payload" }, { "title":"chip3", "payload":"chip3_payload" } ]
 
       message={"payload":"quickReplies","data":data}
 
-      dispatcher.utter_message(text="Please choose a cuisine",json_message=data)
+      dispatcher.utter_message(text="Please choose a cuisine",json_message=message)
+
+    ```   
+
+## Charts
+- sending response from `domain.yml`
+    ```
+    responses:
+      utter_askLeaveBalance:
+      - text: "here is your leave balance details"
+        custom:
+          payload: chart
+          data:
+            title: Leaves
+            labels:
+            - Sick Leave
+            - Casual Leave
+            - Earned Leave
+            - Flexi Leave
+            backgroundColor:
+            - "#36a2eb"
+            - "#ffcd56"
+            - "#ff6384"
+            - "#009688"
+            - "#c45850"
+            chartsData:
+            - 5
+            - 10
+            - 22
+            - 3
+            chartType: pie
+            displayLegend: 'true'
+    ```
+
+- sending response from custom actions `actions.py` 
+    ```
+      data={ "title": "Leaves", "labels": [ "Sick Leave", "Casual Leave", "Earned Leave", "Flexi Leave" ], "backgroundColor": [ "#36a2eb", "#ffcd56", "#ff6384", "#009688", "#c45850" ], "chartsData": [ 5, 10, 22, 3 ], "chartType": "pie", "displayLegend": "true" }
+
+      message={ "payload": "chart", "data": data }
+
+      dispatcher.utter_message(text="Please choose a cuisine",json_message=message)
 
     ```   
