@@ -1,4 +1,3 @@
-# Chatbot Widget designed for Rasa Bots
 
 ![ScreenShot](static/img/banner.png)
 
