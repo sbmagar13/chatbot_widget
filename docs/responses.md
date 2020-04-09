@@ -1,6 +1,6 @@
 ## Sending Bot Responses from Rasa
 
-## Text
+### Text
 
 - sending response from `domain.yml`
     ```
@@ -14,4 +14,3 @@
      dispatcher.utter_message(text="Hello 😀")
   ```
 
-  
