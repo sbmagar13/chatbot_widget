@@ -17,19 +17,19 @@ An Open Source ChatBot widget easy to connect to RASA bot through [Rest](https:/
 
 ## Features
 
-- [Text Messages](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L198)
-- [Buttons](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L211)
-- [Images](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L204)
-- [Quick Replies](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L219)
-- [Cards Carousel](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L234)
-- [Charts](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L241)
-- [Collapsible](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L262)
-- [Bot Typing Indicator](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L490)
-- [Location Acccess](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L444)
-- [Conversation Restart](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/d1d331f19bc6d5e74b85a16faaeff2ccdf8bfceb/static/js/script.js#L311)
-- [Fully Customizable](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/master/static/js/script.js)
-- [DropDown](https://github.com/JiteshGaikwad/Chatbot-Widget/blob/58f685643ef5e70603147f99b7b1f5e35b73be0f/static/js/script.js#L226)
-- [Video Message](https://forum.rasa.com/t/displaying-video-in-the-rasa-webchat/26931?u=jiteshgaikwad)
+- Text Messages
+- Buttons
+- Images
+- Video 
+- DropDown
+- Quick Replies
+- Cards Carousel
+- Charts
+- Collapsible
+- Bot Typing Indicator
+- Location Access
+
+
 
 
 ## Instructions
