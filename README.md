@@ -19,17 +19,17 @@
 
 ## Features
 
-- Text Messages
+- Text 
 - Buttons
 - Images
 - Video 
-- DropDown
-- Quick Replies
-- Cards Carousel
+- Dropdown
+- Quick replies
+- Cards carousels
 - Charts
 - Collapsible
-- Bot Typing Indicator
-- Location Access
+- Bot typing indicator
+- Location access
 
 
 ## Instructions
