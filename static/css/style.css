@@ -1,5 +1,7 @@
 body {
     font-family: 'Raleway', sans-serif;
+    background: url('../img/body.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
 
@@ -14,12 +16,12 @@ body {
     position: fixed;
     background: #f7f7f7;
     border-radius: 10px 10px 10px 10px;
-    box-shadow: 0px 2px 10px 1px #b5b5b5;
+    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 #00000096;
 }
 
 .chat_header {
     height: 60px;
-    background: rgb(68, 61, 177);
+    background: rgb(90, 23, 238);
     border-radius: 10px 10px 0px 0px;
     padding: 5px;
     font-size: 20px;
@@ -104,7 +106,7 @@ textarea-webkit-scrollbar {
     padding: 10px;
     float: right;
     margin-right: 0.5em;
-    background: #443db1;
+    background: #5a17ee;
     color: white;
     margin-bottom: 0.15em;
     font-size: 13px;
@@ -160,11 +162,9 @@ textarea-webkit-scrollbar {
 }
 
 .imgProfile {
-    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
-    background: white;
+    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 #00000096;
     border-radius: 50px;
     width: 60%;
-    padding: 2%;
 }
 
 .profile_div {
@@ -196,7 +196,7 @@ textarea-webkit-scrollbar {
 
 .dropdown-content li>a,
 .dropdown-content li>span {
-    color: #443db1;
+    color: #5a17ee;
 }
 
 @keyframes animateElement {
@@ -807,5 +807,34 @@ video:focus {
 
 .tap-target {
     color: #fff;
-    background: #443db1;
+    background: #5a17ee;
+}
+
+.pdf_attachment {
+    border: 0.5px solid #00000014;
+    width: 60%;
+    height: 14%;
+    border-radius: 10px;
+    margin-left: 10%;
+    box-shadow: 2px 3px 9px 0px #9a82842e;
+}
+
+.pdf_icon {
+    border-radius: 10px 0px 0px 10px;
+    height: 100%;
+    font-size: 25px;
+    padding: 7% !important;
+    background-color: #5a17ee;
+    color: white;
+}
+
+.pdf_link {
+    padding: 5% !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pdf_link a {
+    color: #5a17ee;
 }

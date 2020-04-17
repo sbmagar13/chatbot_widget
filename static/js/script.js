@@ -3,13 +3,23 @@ document.addEventListener('DOMContentLoaded', function() {
     var elemsTap = document.querySelector('.tap-target');
     var instancesTap = M.TapTarget.init(elemsTap, {});
     instancesTap.open();
-    setTimeout(function() { instancesTap.close(); }, 2000);
+    setTimeout(function() { instancesTap.close(); }, 4000);
 
 });
 
 
 //initialization
 $(document).ready(function() {
+    $('.datepicker').datepicker();
+
+    // $('.datepicker').datepicker({
+    //     container: '.dropPick',
+    //     // format: 'mm/dd/yyyy',
+    //     // autoClose: 'true',
+    //     // editable: 'true'
+    // });
+    // // $('.datepicker').click();
+
 
     //Bot pop-up intro
     $("div").removeClass("tap-target-origin")
@@ -199,7 +209,7 @@ function setBotResponse(response) {
             //if there is no response from Rasa, send  fallback message to the user
             var fallbackMsg = "I am facing some issues, please try again later!!!";
 
-            var BotResponse = '<img class="botAvatar" src="./static/img/botAvatar.png"/><p class="botMsg">' + fallbackMsg + '</p><div class="clearfix"></div>';
+            var BotResponse = '<img class="botAvatar" src="./static/img/sara_avatar.png"/><p class="botMsg">' + fallbackMsg + '</p><div class="clearfix"></div>';
 
             $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
             scrollToBottomOfResults();
@@ -210,7 +220,7 @@ function setBotResponse(response) {
 
                 //check if the response contains "text"
                 if (response[i].hasOwnProperty("text")) {
-                    var BotResponse = '<img class="botAvatar" src="./static/img/botAvatar.png"/><p class="botMsg">' + response[i].text + '</p><div class="clearfix"></div>';
+                    var BotResponse = '<img class="botAvatar" src="./static/img/sara_avatar.png"/><p class="botMsg">' + response[i].text + '</p><div class="clearfix"></div>';
                     $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
                 }
 
@@ -245,6 +255,13 @@ function setBotResponse(response) {
                     if (response[i].custom.payload == "quickReplies") {
                         quickRepliesData = response[i].custom.data;
                         showQuickReplies(quickRepliesData);
+                        return;
+                    }
+
+                    //check if the custom payload type is "pdf_attachment"
+                    if (response[i].custom.payload == "pdf_attachment") {
+
+                        renderPdfAttachment(response[i]);
                         return;
                     }
 
@@ -310,6 +327,27 @@ $("#profile_div").click(function() {
     $(".widget").toggle();
 });
 
+
+//====================================== Render Pdf attachment =======================================
+function renderPdfAttachment(data) {
+    pdf_url = data.custom.url;
+    pdf_title = data.custom.title;
+    pdf_attachment =
+        '<div class="pdf_attachment">' +
+        '<div class="row">' +
+        '<div class="col s3 pdf_icon"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></div>' +
+        '<div class="col s9 pdf_link">' +
+        '<a href="' + pdf_url + '" target="_blank">' + pdf_title + ' </a>' +
+        '</div>' +
+        '</div>' +
+        '</div>'
+    $(".chats").append(pdf_attachment);
+    scrollToBottomOfResults();
+
+}
+
+
+
 //====================================== DropDown ==================================================
 //render the dropdown messageand handle user selection
 function renderDropDwon(data) {
@@ -319,6 +357,7 @@ function renderDropDwon(data) {
     }
     var select = '<div class="dropDownMsg"><select class="browser-default dropDownSelect"> <option value="" disabled selected>Choose your option</option>' + options + '</select></div>'
     $(".chats").append(select);
+    scrollToBottomOfResults();
 
     //add event handler if user selects a option.
     $("select").change(function() {
@@ -547,7 +586,7 @@ function handleLocationAccessError(error) {
 //======================================bot typing animation ======================================
 function showBotTyping() {
 
-    var botTyping = '<img class="botAvatar" id="botAvatar" src="./static/img/botAvatar.png"/><div class="botTyping">' + '<div class="bounce1"></div>' + '<div class="bounce2"></div>' + '<div class="bounce3"></div>' + '</div>'
+    var botTyping = '<img class="botAvatar" id="botAvatar" src="./static/img/sara_avatar.png"/><div class="botTyping">' + '<div class="bounce1"></div>' + '<div class="bounce2"></div>' + '<div class="bounce3"></div>' + '</div>'
     $(botTyping).appendTo(".chats");
     $('.botTyping').show();
     scrollToBottomOfResults();

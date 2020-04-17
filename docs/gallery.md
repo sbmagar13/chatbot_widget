@@ -24,6 +24,10 @@
 
 ![ScreenShot](../static/img/cardsUi_3.png)
 
+## PDF Attachment
+
+![ScreenShot](../static/img/pdf_attachment.PNG)
+
 ## Charts
 
 ![ScreenShot](../static/img/charts_1.png) 

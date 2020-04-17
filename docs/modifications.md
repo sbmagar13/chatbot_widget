@@ -2,7 +2,7 @@
 
 If you want to add the bot popup intro, you edit the below line of code in `index.html`
 
-```
+```W
     <!-- Bot pop-up intro -->
     <div class="tap-target" data-target="profile_div">
         <div class="tap-target-content">
@@ -30,5 +30,6 @@ If you want to modify the UI of the chatbot widget, you can edit the respective 
 | Video        | .video-container |
 | Image        | .imgcard     |
 | Dropdown     | .dropDownMsg |
+| PDF attachment     | .pdf_attachment  |
 | Bot pop-up intro | .tap-target |
 
