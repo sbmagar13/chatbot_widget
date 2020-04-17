@@ -25,11 +25,12 @@
 - Video 
 - Dropdown
 - Quick replies
-- Cards carousels
+- Cards carousel
 - Charts
 - Collapsible
 - Bot typing indicator
 - Location access
+
 
 
 ## Instructions
