@@ -23,6 +23,7 @@
 - Buttons
 - Images
 - Video 
+- PDF Attachment
 - Dropdown
 - Quick replies
 - Cards carousel
