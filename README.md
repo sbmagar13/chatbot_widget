@@ -25,8 +25,7 @@
 - Video 
 - Dropdown
 - Quick replies
-- Cards carousels
-- Suggestion chips
+- Cards carousel
 - Charts
 - Collapsible
 - Bot typing indicator
