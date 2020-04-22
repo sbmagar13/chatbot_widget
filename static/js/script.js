@@ -10,15 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //initialization
 $(document).ready(function() {
-    $('.datepicker').datepicker();
-
-    // $('.datepicker').datepicker({
-    //     container: '.dropPick',
-    //     // format: 'mm/dd/yyyy',
-    //     // autoClose: 'true',
-    //     // editable: 'true'
-    // });
-    // // $('.datepicker').click();
 
 
     //Bot pop-up intro
