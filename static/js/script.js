@@ -195,7 +195,7 @@ function send(message) {
     url: "http://localhost:5005/webhooks/rest/webhook",
     type: "POST",
     contentType: "application/json",
-    data: JSON.stringify({ message: message, sender: user_id }),
+    data: JSON.stringify({ message: message, sender: sender_id }),
     success: function (botResponse, status) {
       console.log("Response from Rasa: ", botResponse, "\nStatus: ", status);
 
