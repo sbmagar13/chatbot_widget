@@ -1,4 +1,4 @@
- **Note: Updated UI with Socket Support and new UI deisgn and Components Coming Soon...**
+
 
 ![ScreenShot](static/img/banner.png)
 
