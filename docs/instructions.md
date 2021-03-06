@@ -11,7 +11,7 @@
   ```
 - If you have custom actions, you can start the action server using the below command
     ```
-    rasa run actions
+    rasa run actions --cors "*" --debug
     ```
 - Once you have you Rasa server up and running, you can test the bot by running the `index.html` file in the browser.
 
