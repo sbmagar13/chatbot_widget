@@ -499,7 +499,7 @@ function setBotResponse(response) {
         // check if the response contains "text"
         if (Object.hasOwnProperty.call(response[i], "text")) {
           if (response[i].text != null) {
-            const BotResponse = `<img class="botAvatar" src="./static/img/sara_avatar.png"/><p class="botMsg">${response[i].text}</p><div class="clearfix"></div>`;
+            const BotResponse = `<img class="botAvatar" src="./static/img/sara_avatar.png"/><p class="botMsg">${response[i].text.replace(/(?:\r\n|\r|\n)/g, '<br>')}</p><div class="clearfix"></div>`;
             $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
           }
         }
