@@ -218,3 +218,15 @@
 
   dispatcher.utter_message("Sure, please allow me to access your location 🧐",json_message=message)
   ```
+  
+## PDF Files
+- sending response from `domain.yml`
+    ```
+    responses:
+      utter_pdf:
+        - text: "Here is the PDF."
+          custom: 
+            payload: pdf_attachment
+            title: "PDF Title"
+            url: "URL to PDF file"
+    ```
