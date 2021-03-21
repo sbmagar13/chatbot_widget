@@ -20,8 +20,8 @@ body {
 
 .chat_header {
   height: 60px;
-  background: #060dcfc7;
-  border-radius: 10px 10px 0px 0px;
+  background: #0670cfc7;
+  border-radius: 10px 10px 10px 10px;
   padding: 5px;
   font-size: 20px;
 }
@@ -31,6 +31,7 @@ body {
   float: left;
   margin-top: 3%;
   margin-left: 35%;
+  text-shadow: 4px 4px 5px black;
 }
 
 .chats {
@@ -559,7 +560,7 @@ div.content_data::-webkit-scrollbar {
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 90%;
-  height: 40%;
+  /* height: 40%; */
   display: inline-block;
   margin-bottom: 1px;
   font-size: 15px;
@@ -659,7 +660,7 @@ div.content_data::-webkit-scrollbar {
   position: relative;
   margin: auto;
   height: 25vh;
-  width: 20vw;
+  width: 90%;
   border-radius: 10px 10px 10px 10px;
   margin-left: 5%;
   background: white;

@@ -51,7 +51,7 @@
 
   <body>
     <div class="container">
-      <!-- Modal for rendering the charts, declare this if you want to render charts, 
+      <!-- Modal for rendering the charts, declare this if you want to render charts,
          else you remove the modal -->
       <div id="modal1" class="modal">
         <canvas id="modal-chart"></canvas>
@@ -61,7 +61,7 @@
       <div class="widget">
         <div class="chat_header">
           <!--Add the name of the bot here -->
-          <span class="chat_header_title">Sara</span>
+          <span class="chat_header_title">VolgAI</span>
           <span class="dropdown-trigger" href="#" data-target="dropdown1">
             <i class="material-icons"> more_vert </i>
           </span>
@@ -94,7 +94,7 @@
 
       <!--bot profile-->
       <div class="profile_div" id="profile_div">
-        <img class="imgProfile" src="static/img/botAvatar.png" />
+        <img class="imgProfile" src="static/img/volgai-chatavatar.png" />
       </div>
 
       <!-- Bot pop-up intro -->
@@ -102,7 +102,7 @@
         <div class="tap-target-content">
           <h5 class="white-text">Hey there 👋</h5>
           <p class="white-text">
-            I can help you get started with Rasa and answer your technical
+            I can help you get started with VolgAI Assistant and answer your our services related
             questions.
           </p>
         </div>
@@ -111,12 +111,15 @@
 
     <!--JavaScript at end of body for optimized loading-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="static/js/materialize.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    <script
+      type="text/javascript"
+      src="static/js/lib/materialize.min.js"
+    ></script>
+    <script src="static/js/lib/uuid.min.js"></script>
     <!--Main Script -->
     <script type="text/javascript" src="static/js/script.js"></script>
 
     <!--Chart.js Script -->
-    <script type="text/javascript" src="static/js/chart.min.js"></script>
+    <script type="text/javascript" src="static/js/lib/chart.min.js"></script>
   </body>
 </html>
