@@ -31,5 +31,5 @@ $(document).on("click", ".menu .menuChips", function () {
     send(payload);
 
     // delete the suggestions once user click on it.
-    $(".suggestions").remove();
+    //$(".suggestions").remove();
 });

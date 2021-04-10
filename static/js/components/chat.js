@@ -18,7 +18,7 @@ function setUserResponse(message) {
     $(".usrInput").val("");
     scrollToBottomOfResults();
     showBotTyping();
-    $(".suggestions").remove();
+    //$(".suggestions").remove();
 }
 
 /**
@@ -218,7 +218,7 @@ function send(message) {
 // eslint-disable-next-line no-unused-vars
 function actionTrigger() {
     $.ajax({
-        url: `http://localhost:5005/conversations/${sender_id}/execute`,
+        url: `https://volg-chatbot.herokuapp.com/conversations/${sender_id}/execute`,
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
@@ -255,14 +255,14 @@ function actionTrigger() {
 // eslint-disable-next-line no-unused-vars
 function customActionTrigger() {
     $.ajax({
-        url: "http://localhost:5055/webhook/",
+        url: "https://volg-chatbot.herokuapp.com/webhook/",
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify({
-            next_action: action_name,
-            tracker: {
-                sender_id,
-            },
+		data: JSON.stringify({
+		    next_action: action_name,
+		    tracker: {
+		        sender_id,
+		    },
         }),
         success(botResponse, status) {
             console.log("Response from Rasa: ", botResponse, "\nStatus: ", status);
@@ -334,7 +334,7 @@ $(".usrInput").on("keyup keypress", (e) => {
         }
 
         $("#paginated_cards").remove();
-        $(".suggestions").remove();
+       // $(".suggestions").remove();
         $(".quickReplies").remove();
         $(".usrInput").blur();
         setUserResponse(text);
@@ -361,7 +361,7 @@ $("#sendButton").on("click", (e) => {
         modalChart.destroy();
     }
 
-    $(".suggestions").remove();
+    //$(".suggestions").remove();
     $("#paginated_cards").remove();
     $(".quickReplies").remove();
     $(".usrInput").blur();

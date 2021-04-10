@@ -50,5 +50,5 @@ $(document).on("click", ".quickReplies .chip", function () {
     send(payload);
 
     // delete the quickreplies
-    $(".quickReplies").remove();
+    //$(".quickReplies").remove();
 });
