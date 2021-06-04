@@ -218,7 +218,7 @@ function send(message) {
 // eslint-disable-next-line no-unused-vars
 function actionTrigger() {
     $.ajax({
-        url: `https://volg-chatbot.herokuapp.com/conversations/${sender_id}/execute`,
+        url: `http://localhost:5005/conversations/${sender_id}/execute`,
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
@@ -255,7 +255,7 @@ function actionTrigger() {
 // eslint-disable-next-line no-unused-vars
 function customActionTrigger() {
     $.ajax({
-        url: "https://volg-chatbot.herokuapp.com/webhook/",
+        url: "http://localhost:5055/webhook/",
         type: "POST",
         contentType: "application/json",
 		data: JSON.stringify({
